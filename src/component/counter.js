@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class Counter extends React.Component {
+export default class counter extends Component {
     constructor() {
         super();
         this.state = {
             score: 0
         }
     }
+    addScore() {
+        this.setState({
+            score: this.state.score + 1
+        })
+    }
+    removeScore() {
+        // const isMinScore = this.state.score != 0; 
+        // if (isMinScore) {
+        //     this.setState({
+        //         score: this.state.score - 1
+        //     })
+        // }
+        this.setState({
+            score: this.state.score - 1
+        })
+    }
     render() {
-        return(
+        return (
             <div className="grid-column">
                 <h3>Counter score</h3>
                 <div className="item">
@@ -21,18 +37,4 @@ class Counter extends React.Component {
             </div>
         )
     }
-    addScore() {
-        this.setState({
-            score: this.state.score + 1
-        })
-    }
-    removeScore() {
-        const isMinScore = this.state.score != 0; 
-        if (isMinScore) {
-            this.setState({
-                score: this.state.score - 1
-            })
-        }
-    }
 }
-export default Counter;
